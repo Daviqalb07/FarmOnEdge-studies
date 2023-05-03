@@ -18,7 +18,7 @@ db = None
 
 def main():
     global db
-    
+
     client = start_client()
 
     client.on_message = on_message
@@ -37,9 +37,11 @@ def start_client() -> mqtt.Client:
 
 def on_message(client, userdata, message):
     image_data = b64decode(message.payload)
-    image_name = str(datetime.datetime.now())
+    image_name = f'{datetime.datetime.now()}.png'
 
     upload_image(image_data, image_name)
+
+    print("Image saved successfully!")
 
 
 def mongo_conn():
@@ -56,6 +58,7 @@ def upload_image(image_data:bytes, filename:str):
     global db
     fs = GridFS(db)
     fs.put(image_data, filename=filename)
+
 
 
 main()
