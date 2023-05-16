@@ -1,0 +1,8 @@
+esp/.pio/
+esp/.vscode/.browse.c_cpp.db*
+esp/.vscode/c_cpp_properties.json
+esp/.vscode/launch.json
+esp/.vscode/ipch
+esp/src/config.h
+server/env
+server/config.py
