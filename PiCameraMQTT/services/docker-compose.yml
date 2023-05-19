@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+    mosquitto:
+      container_name: mosquitto
+      image: eclipse-mosquitto:2
+      volumes:
+        - ./mosquitto:/mosquitto/config/:ro
+      ports:
+        - 1883:1883
+        - 9001:9001
+      networks:
+        - mosquitto
+      
+    mongo:
+      container_name: mongo
+      image: mongodb/mongodb-community-server:latest
+      ports:
+        - 27017:27017
+      networks:
+        - mosquitto
+
+networks:
+    mosquitto:
+        name: mosquitto
+        driver: bridge

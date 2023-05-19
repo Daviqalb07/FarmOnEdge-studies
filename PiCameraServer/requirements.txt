@@ -1,4 +1,0 @@
-paho-mqtt
-Pillow
-python-dotenv
-pymongo

@@ -1,6 +1,1 @@
 *.png
-PiCameraClient/env/
-PiCameraClient/.env
-PiCameraServer/env/
-PiCameraServer/.env
-PiCameraServer/downloads/
