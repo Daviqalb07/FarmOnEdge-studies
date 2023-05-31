@@ -9,10 +9,10 @@ mount_device(){
 }
 
 upload_images_to_device(){
-    mv $1/* $project_dir/usb/images
+    mv $images_dir/* $project_dir/usb/images
 }
 
 mount_device
 if [ "$(ls -A $images_dir)" ]; then
-    upload_images_to_device images_dir
+    upload_images_to_device
 fi
