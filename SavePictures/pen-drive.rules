@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", RUN+="/home/pi/projects/FarmOnEdge-studies/SavePictures/usb_connect.sh $env{DEVNAME}"

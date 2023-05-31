@@ -13,10 +13,11 @@ def main():
     while True:
         save_dir = get_save_dir()        
         timestamp = datetime.now()
-        filename = f'{ save_dir }/{ timestamp.strftime("%d-%m-%Y@%H_%M_%S") }.jpeg'
+        filename = f'{timestamp.strftime("%d-%m-%Y@%H_%M_%S") }.jpeg'
+        file_path = f'{ save_dir }/{ filename }'
 
         try:
-            camera.capture(filename, format=CAPTURE_FORMAT)
+            camera.capture(file_path, format=CAPTURE_FORMAT)
         except Exception as e:
             print(f'[ERROR] {e}')
 
@@ -24,12 +25,14 @@ def main():
 
 
 def get_save_dir():
-    if os.path.exists('./usb/images'):
-            save_dir = './usb/images'
+    if os.path.ismount('./usb'):
+        save_dir = './usb/images'
+            
     else:
         save_dir = './images'
-        if not os.path.exists(save_dir):
-            os.mkdir(save_dir)
+    
+    if not os.path.exists(save_dir):
+        os.mkdir(save_dir)
     
     return save_dir
 
